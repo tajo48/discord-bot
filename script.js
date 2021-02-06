@@ -18,13 +18,7 @@ client.on("message", (message) => {
   if (message.guild.id != client.config.server) return;
   const args = message.content.slice(client.config.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
-  var today = new Date();
-  var date =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  var time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var godzina = today.getHours();
-  var dateTime = date + " " + time;
+
 
 
   if (command === "gate") {
@@ -54,71 +48,7 @@ client.on("message", (message) => {
     return;
   }
 
-  if (command === "on") {
-    if (message.author.id == client.config.owner) {
-      state = true;
-      client.user.setStatus("online");
-      message.channel.send({
-        embed: {
-          color: "#00ff00",
-          title: `The gate system has been enabled`,
-        },
-      });
-    }
-    return;
-  }
 
-  if (command === "off") {
-    if (message.author.id == client.config.owner) {
-      state = false;
-      client.user.setStatus("dnd");
-      message.channel.send({
-        embed: {
-          color: "#00ff00",
-          title: `The gate system has been disabled`,
-        },
-      });
-    }
-
-    return;
-  }
-  if (command === "start") {
-    if (message.author.id == client.config.owner) {
-      dateone = date;
-      message.channel.send({
-        embed: {
-          color: "#00ff00",
-          title: `The gate system has been enabled`,
-        },
-      });
-    }
-    return;
-  }
-
-  if (command === "stop") {
-    if (message.author.id == client.config.owner) {
-      dateone = date;
-      message.channel.send({
-        embed: {
-          color: "#00ff00",
-          title: `The gate system has been disabled`,
-        },
-      });
-    }
-
-    return;
-  }
-
-  if (godzina <= "8" || godzina >= "19" || dateone == date || state == 0) {
-    message.channel.send({
-      embed: {
-        color: "#808080",
-        title: `Gate locked, system disabled`,
-        description: `<@${message.author.id}> tried to open the gate at ${dateTime} `,
-      },
-    });
-    return;
-  }
 
   if (command === "gate") {
     const request = http.get(client.config.ip);
