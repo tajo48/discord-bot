@@ -29,7 +29,7 @@ client.on("message", (message) => {
         embed: {
           color: "#ffff00",
           title: `Operation performed`,
-          description: `User <@${message.author.id}> pressed the gate button at ${dateTime}`,
+          description: `User <@${message.author.id}> pressed the gate button `,
         },
       });
       return;
@@ -57,7 +57,7 @@ client.on("message", (message) => {
       embed: {
         color: "#ffff00",
         title: `Operation performed`,
-        description: `User <@${message.author.id}> pressed the gate button at ${dateTime}`,
+        description: `User <@${message.author.id}> pressed the gate button`,
       },
     });
   }
